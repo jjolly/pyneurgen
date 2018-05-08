@@ -1,7 +1,6 @@
 Fork of Python Neural Genetic Hybrids
 ========================================
-This is a fork of the package below. I had some bugfixes and changes I wanted to implement
-to make it more useful for me.
+This is a fork of the package below. I wanted this package in python 3.
 
 This package can be installed with pip through github:
 
