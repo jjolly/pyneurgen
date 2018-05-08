@@ -556,13 +556,11 @@ class NeuralNet(object):
                 if show_sample_interval > 0:
                     if count % show_sample_interval == 0:
                         #   Convert to logging at some point
-                        print ("epoch %s of %s, sample: %s errors: %s" % (
-                            epoch, self._epochs, count, summed_errors))
-
+                        print(f"epoch {epoch} of {self._epochs}, sample: {count} errors: {summed_errors}")
             mse = self.calc_mse(summed_errors, count)
             if show_epoch_results:
                 #   Convert this over to logging
-                print ("epoch: %s MSE: %s" % (epoch, mse))
+                print("epoch: {epoch} MSE: {mse}")
 
             self.accum_mse.append(mse)
 
@@ -610,8 +608,7 @@ class NeuralNet(object):
             if show_sample_interval > 0:
                 if count % show_sample_interval == 0:
                     #   Convert to logging at some point
-                    print "sample: %s errors: %s" % (
-                        count, summed_errors)
+                    print("sample: {count} errors: {summed_errors}")
 
         self.mse = self.calc_mse(summed_errors, count)
         return self.mse

@@ -24,6 +24,8 @@ evolutionary process drives the fitness values towards zero.
 
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 from pyneurgen.grammatical_evolution import GrammaticalEvolution
 from pyneurgen.fitness import FitnessElites, FitnessTournament
 from pyneurgen.fitness import ReplacementTournament, MAX, MIN, CENTER
@@ -83,9 +85,9 @@ ges.set_replacement_selections(
 
 ges.set_maintain_history(True)
 ges.create_genotypes()
-print ges.run()
-print ges.fitness_list.sorted()
-print
-print
+print((ges.run()))
+print((ges.fitness_list.sorted()))
+print("")
+print("")
 gene = ges.population[ges.fitness_list.best_member()]
-print gene.get_program()
+print((gene.get_program()))

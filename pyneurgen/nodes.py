@@ -22,6 +22,7 @@
 This module implements the nodes for an artficial neural network.
 
 """
+from __future__ import absolute_import
 import math
 from pyneurgen.utilities import rand_weight
 

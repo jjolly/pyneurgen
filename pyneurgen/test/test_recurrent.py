@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import unittest
 from os import sys
 sys.path.append(r'../')
@@ -31,7 +33,7 @@ class RecurrentConfigTest(unittest.TestCase):
 
     def test__apply_config(self):
 
-        print 'test__apply_config not yet implemented'
+        print('test__apply_config not yet implemented')
 
     def test_fully_connect(self):
 

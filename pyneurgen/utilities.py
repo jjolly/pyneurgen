@@ -23,7 +23,9 @@ This module implements some basic utilities for use with Grammatical Evolution
 
 """
 
+from __future__ import absolute_import
 from random import random
+from six.moves import range
 
 
 def rand_weight(constraint=1.0):

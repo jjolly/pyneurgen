@@ -4,11 +4,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='pyneurgen',
-    version='0.3.2',
+    version='0.3.3',
     description='Python Neural Genetic Hybrids',
-    author='Katerina Hanson',
-    author_email='katerina.hanson@gmail.com',
-    url='https://github.com/katerina7479/pyneurgen',
+    author='Nicholas Payne',
+    author_email='nicpayne713@gmail.com',
+    url='https://github.com/nicpayne713/pyneurgen',
     packages=['pyneurgen'],
     package_dir={'pyneurgen': 'pyneurgen'},
     long_description="""
@@ -33,8 +33,7 @@ setup(
         'License :: OSI Approved :: GNU General Public License (GPL)',
         'Natural Language :: English',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
+        'Programming Language :: Python :: 3.6',
         'Topic :: Adaptive Technologies',
         'Topic :: Scientific/Engineering :: Artificial Intelligence',
         'Topic :: Scientific/Engineering :: Bio-Informatics',

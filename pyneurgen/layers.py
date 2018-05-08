@@ -23,7 +23,9 @@ This module implements a layer class for an artficial neural network.
 
 """
 
+from __future__ import absolute_import
 from pyneurgen.nodes import Node, CopyNode, BiasNode, Connection
+from six.moves import range
 
 LAYER_TYPE_INPUT = 'input'
 LAYER_TYPE_HIDDEN = 'hidden'

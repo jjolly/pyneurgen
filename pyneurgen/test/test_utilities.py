@@ -1,6 +1,8 @@
+from __future__ import absolute_import
 import unittest
 
 from pyneurgen.utilities import rand_weight, base10tobase2, base2tobase10
+from six.moves import range
 
 
 class TestUtilities(unittest.TestCase):
