@@ -83,9 +83,9 @@ ges.set_replacement_selections(
 
 ges.set_maintain_history(True)
 ges.create_genotypes()
-print ges.run()
-print ges.fitness_list.sorted()
-print
-print
+print(ges.run())
+print(ges.fitness_list.sorted())
+print("")
+print("")
 gene = ges.population[ges.fitness_list.best_member()]
-print gene.get_program()
+print(gene.get_program())

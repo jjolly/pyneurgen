@@ -656,15 +656,15 @@ class TestGrammaticalEvolution(unittest.TestCase):
         getfh = self.ges.get_fitness_history
 
         #   Not really sure how to prove a run.
-        print 'best_value', getfh('best_value')
-        print 'mean', getfh('mean')
-        print 'min_value', getfh('min_value')
-        print 'max_value', getfh('max_value')
-        print 'worst_value', getfh('worst_value')
-        print 'min_member', getfh('min_member')
-        print 'max_member', getfh('max_member')
-        print 'best_member', getfh('best_member')
-        print 'worst_member', getfh('worst_member')
+        print('best_value', getfh('best_value'))
+        print('mean', getfh('mean'))
+        print('min_value', getfh('min_value'))
+        print('max_value', getfh('max_value'))
+        print('worst_value', getfh('worst_value'))
+        print('min_member', getfh('min_member'))
+        print('max_member', getfh('max_member'))
+        print('best_member', getfh('best_member'))
+        print('worst_member', getfh('worst_member'))
 
         self.assertEqual(5, self.ges._generation)
 
@@ -704,7 +704,7 @@ class TestGrammaticalEvolution(unittest.TestCase):
 
     def test_perform_endcycle(self):
 
-        print "perform_endcycle not yet tested"
+        print("perform_endcycle not yet tested")
 
     def test_evaluate_fitness(self):
 
