@@ -23,8 +23,10 @@ This module implements the fitness components for grammatical evolution.
 
 """
 
+from __future__ import absolute_import
 from random import random, randint
 import math
+from six.moves import range
 
 MAX = 'max'
 MIN = 'min'
@@ -331,11 +333,11 @@ class Selection(object):
                     sum(scale_list)))
         cumu = [0.0]
         length = len(scale_list)
-        for i in xrange(length):
+        for i in range(length):
             cumu.append(scale_list[i] + cumu[-1])
 
         #   Rewrite for binary search sometime
-        for i in xrange(length):
+        for i in range(length):
             rand_val = random()
             position = 0
             while position < length:
@@ -354,7 +356,7 @@ class Selection(object):
 
         length = len(self._selection_list)
         sort_list = []
-        for i in xrange(length):
+        for i in range(length):
             sort_list.append([self._selection_list[i], i])
         return sort_list
 
@@ -463,7 +465,7 @@ class Fitness(Selection):
             self._selection_list = []
             length = len(fitness_list)
             target_value = fitness_list.get_target_value()
-            for i in xrange(length):
+            for i in range(length):
                 self._selection_list.append(
                         abs(fitness_list[i][0] - target_value))
         else:
@@ -643,7 +645,7 @@ class FitnessProportionate(Fitness):
                 raise ValueError("""
                     Truncation scaling requires a truncation value""")
             length = len(self._selection_list)
-            for i in xrange(length):
+            for i in range(length):
                 if self._selection_list[i] < trunc:
                     self._selection_list[i] = 0.0
 
@@ -785,7 +787,7 @@ class FitnessLinearRanking(Fitness):
 
         #   Now this list needs the probabilities combined with members
         select_list = [[sort_list[i][1], prob_list[i]]
-                        for i in xrange(length)]
+                        for i in range(length)]
 
         return self._roulette_wheel([item[1] for item in select_list])
 
@@ -859,7 +861,7 @@ class FitnessTruncationRanking(Fitness):
         prob_list = []
         prob = self._calc_prob(length, cutoff_rank)
 
-        for i in xrange(length):
+        for i in range(length):
             member_no = sort_list[i][1]
             if i < cutoff_rank - 1:
                 prob_list.append([member_no, prob])

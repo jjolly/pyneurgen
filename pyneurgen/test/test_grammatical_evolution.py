@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+from __future__ import print_function
 import unittest
 
 from copy import deepcopy
@@ -22,6 +24,7 @@ from pyneurgen.grammatical_evolution import DEFAULT_MAINTAIN_HISTORY
 from pyneurgen.grammatical_evolution import DEFAULT_TIMEOUTS
 
 from pyneurgen.genotypes import MUT_TYPE_M, MUT_TYPE_S
+from six.moves import range
 
 
 class TestGrammaticalEvolution(unittest.TestCase):
@@ -111,8 +114,8 @@ class TestGrammaticalEvolution(unittest.TestCase):
         """
 
         self.ges.set_population_size(1000)
-        self.assertEqual(1000L, self.ges._population_size)
-        self.assertEqual(1000L, len(self.ges.fitness_list))
+        self.assertEqual(1000, self.ges._population_size)
+        self.assertEqual(1000, len(self.ges.fitness_list))
 
         self.assertRaises(ValueError, self.ges.set_population_size, 0)
         self.assertRaises(ValueError, self.ges.set_population_size, -1)
@@ -124,7 +127,7 @@ class TestGrammaticalEvolution(unittest.TestCase):
         """
 
         self.ges._population_size = 1000
-        self.assertEqual(1000L, self.ges.get_population_size())
+        self.assertEqual(1000, self.ges.get_population_size())
 
     def test_set_genotype_length(self):
         """
@@ -152,7 +155,7 @@ class TestGrammaticalEvolution(unittest.TestCase):
 
         self.ges._start_gene_length = 1000
         self.ges._max_gene_length = 1500
-        self.assertEqual((1000L, 1500L), self.ges.get_genotype_length())
+        self.assertEqual((1000, 1500), self.ges.get_genotype_length())
 
     def test_set_extend_genotype(self):
         """
@@ -656,15 +659,15 @@ class TestGrammaticalEvolution(unittest.TestCase):
         getfh = self.ges.get_fitness_history
 
         #   Not really sure how to prove a run.
-        print('best_value', getfh('best_value'))
-        print('mean', getfh('mean'))
-        print('min_value', getfh('min_value'))
-        print('max_value', getfh('max_value'))
-        print('worst_value', getfh('worst_value'))
-        print('min_member', getfh('min_member'))
-        print('max_member', getfh('max_member'))
-        print('best_member', getfh('best_member'))
-        print('worst_member', getfh('worst_member'))
+        print(('best_value', getfh('best_value')))
+        print(('mean', getfh('mean')))
+        print(('min_value', getfh('min_value')))
+        print(('max_value', getfh('max_value')))
+        print(('worst_value', getfh('worst_value')))
+        print(('min_member', getfh('min_member')))
+        print(('max_member', getfh('max_member')))
+        print(('best_member', getfh('best_member')))
+        print(('worst_member', getfh('worst_member')))
 
         self.assertEqual(5, self.ges._generation)
 

@@ -22,6 +22,7 @@
 This module implements genotypes for grammatical evolution.
 
 """
+from __future__ import absolute_import
 from datetime import datetime
 import logging
 import random
@@ -29,6 +30,7 @@ import re
 import traceback
 
 from pyneurgen.utilities import base10tobase2, base2tobase10
+from six.moves import range
 
 STOPLIST = ['runtime_resolve', 'set_bnf_variable']
 VARIABLE_FORMAT = '(\<([^\>|^\s]+)\>)'
@@ -328,7 +330,7 @@ class Genotype(object):
                     msg = "elapsed time greater than program timeout"
                     logging.debug(msg)
                     self.errors.append(msg)
-                    raise StandardError(msg)
+                    raise Exception(msg)
                     #continue_map = False
             else:
                 #   Preprogram
@@ -336,7 +338,7 @@ class Genotype(object):
                     msg = "elapsed time greater than preprogram timeout"
                     logging.debug(msg)
                     self.errors.append(msg)
-                    raise StandardError(msg)
+                    raise Exception(msg)
                     #continue_map = False
 
             if len(program) > self._max_program_length:
@@ -347,7 +349,7 @@ class Genotype(object):
                 logging.debug("program follows:")
                 #logging.debug(program)
                 self.errors.append(msg)
-                raise StandardError(msg)
+                raise Exception(msg)
                 #continue_map = False
 
             if continue_map is False:
@@ -506,7 +508,7 @@ class Genotype(object):
         #print "executing code..."
         #exec program_comp
         ns = locals()
-        exec(program) in ns
+        exec((program), ns)
 
     def mutate(self, mutation_rate, mutation_type):
         """

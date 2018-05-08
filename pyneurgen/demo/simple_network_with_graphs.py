@@ -28,6 +28,8 @@ learn to ignore that input.  The target values are a modified sinusoidal.
 
 """
 
+from __future__ import absolute_import
+from __future__ import print_function
 import random
 import math
 
@@ -36,6 +38,7 @@ from pylab import plot, legend, subplot, grid, xlabel, ylabel, show, title
 
 from pyneurgen.neuralnet import NeuralNet
 from pyneurgen.nodes import BiasNode, Connection
+from six.moves import range
 
 #   all samples are drawn from this population
 pop_len = 200
@@ -67,11 +70,11 @@ for position, target in population_gen(population):
     all_targets.append([target])
 
 print("input statistics")
-print("  random:", min([item[0] for item in all_inputs]),
-                            max([item[0] for item in all_inputs]))
-print("  useful:", min([item[1] for item in all_inputs]),
-                            max([item[1] for item in all_inputs]))
-print("target statistics:", min(all_targets), max(all_targets))
+print(("  random:", min([item[0] for item in all_inputs]),
+                            max([item[0] for item in all_inputs])))
+print(("  useful:", min([item[1] for item in all_inputs]),
+                            max([item[1] for item in all_inputs])))
+print(("target statistics:", min(all_targets), max(all_targets)))
 
 net = NeuralNet()
 net.init_layers(2, [10], 1)
@@ -100,7 +103,7 @@ net.learn(epochs=125, show_epoch_results=True,
     random_testing=False)
 
 mse = net.test()
-print("test mse = ", mse)
+print(("test mse = ", mse))
 
 test_positions = [item[0][1] * 1000.0 for item in net.get_test_data()]
 
@@ -121,7 +124,7 @@ legend(loc='lower left', numpoints=1)
 title("Test Target Points vs Actual Points")
 
 subplot(3, 1, 3)
-plot(range(1, len(net.accum_mse) + 1, 1), net.accum_mse)
+plot(list(range(1, len(net.accum_mse) + 1, 1)), net.accum_mse)
 xlabel('epochs')
 ylabel('mean squared error')
 grid(True)

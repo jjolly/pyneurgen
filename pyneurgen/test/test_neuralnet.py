@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 
 from pyneurgen.neuralnet import NeuralNet
@@ -5,6 +6,7 @@ from pyneurgen.layers import Layer
 from pyneurgen.nodes import Node, CopyNode, BiasNode, Connection
 from pyneurgen.nodes import sigmoid, sigmoid_derivative, tanh, tanh_derivative
 from pyneurgen.nodes import linear, linear_derivative
+from six.moves import range
 
 
 class TestNeuralNet(unittest.TestCase):

@@ -1,3 +1,4 @@
+from __future__ import absolute_import
 import unittest
 
 from copy import deepcopy
@@ -67,7 +68,7 @@ class TestLayer(unittest.TestCase):
         layer.nodes[0].set_value(.2)
         layer.nodes[1].set_value(.3)
 
-        values = layer.values()
+        values = list(layer.values())
 
         self.assertEqual(True, isinstance(values, list))
         self.assertEqual(.2, values[0])

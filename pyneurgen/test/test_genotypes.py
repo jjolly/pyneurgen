@@ -1,8 +1,10 @@
+from __future__ import absolute_import
 import unittest
 
 from datetime import datetime, timedelta
 
 from pyneurgen.genotypes import Genotype, MUT_TYPE_M, MUT_TYPE_S, conv_int
+from six.moves import range
 
 
 class TestGenotype(unittest.TestCase):
@@ -241,7 +243,7 @@ class TestGenotype(unittest.TestCase):
 
         #   new variable name
         self.g.set_bnf_variable("test_variable", "test_value")
-        self.assertEqual(True, self.g.local_bnf.has_key("test_variable"))
+        self.assertEqual(True, "test_variable" in self.g.local_bnf)
         self.assertEqual(["test_value"], self.g.local_bnf["test_variable"])
 
         #   new value

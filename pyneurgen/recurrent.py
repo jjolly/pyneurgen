@@ -49,10 +49,12 @@ This module implements various approaches to recurrence.
 
 """
 
+from __future__ import absolute_import
 from pyneurgen.neuralnet import NeuralNet
 from pyneurgen.nodes import CopyNode, Connection
 from pyneurgen.nodes import NODE_OUTPUT, NODE_HIDDEN, NODE_INPUT
 from pyneurgen.nodes import NODE_BIAS, ACTIVATION_LINEAR
+from six.moves import range
 
 
 class RecurrentConfig(object):
@@ -98,7 +100,7 @@ class RecurrentConfig(object):
             raise ValueError("neural_net must be of the NeuralNet class.")
         for snode in self.get_source_nodes(neural_net):
             prev_copy_node = None
-            for level in xrange(self.copy_levels):
+            for level in range(self.copy_levels):
                 copy_node = CopyNode()
                 if level == 0:
                     copy_node.set_source_node(snode)
