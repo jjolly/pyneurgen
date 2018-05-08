@@ -29,6 +29,7 @@ from pyneurgen.utilities import rand_weight
 ACTIVATION_SIGMOID = 'sigmoid'
 ACTIVATION_TANH = 'tanh'
 ACTIVATION_LINEAR = 'linear'
+ACTIVATION_RELU = 'relu'
 
 RANDOM_CONSTRAINT = 1.0
 
@@ -196,6 +197,8 @@ class Node(ProtoNode):
             self._activate = tanh
         elif activation_type == ACTIVATION_LINEAR:
             self._activate = linear
+        elif activation_type == ACTIVATION_RELU:
+            self._activate = relu
         else:
             raise ValueError("invalid activation type: %s" % (activation_type))
 
@@ -214,6 +217,8 @@ class Node(ProtoNode):
             self._error_func = tanh_derivative
         elif activation_type == ACTIVATION_LINEAR:
             self._error_func = linear_derivative
+        elif activation_type == ACTIVATION_RELU:
+            self._error_func = relu_derivative
         else:
             raise ValueError("Invalid activation function")
 
@@ -591,3 +596,20 @@ def linear_derivative(value):
 
     value = 1.0
     return value
+
+def relu(value):
+    """
+    This function calculated the Rectafied Linear Unit
+
+    """
+
+    return value * (value > 0.0)
+
+
+def relu_derivative(value):
+    """
+    This function returns value if value > 0 else 0.
+
+    """
+
+    return (value > 0.0) * 1.0
