@@ -86,8 +86,7 @@ def base2tobase10(value):
 
     """
 
-    val = str(value)
-    
-	new_value = int(val,2)
+    val = str(value)    
+    new_value = int(val,2)
 
     return new_value
