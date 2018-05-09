@@ -86,25 +86,8 @@ def base2tobase10(value):
 
     """
 
-    new_value = 0
     val = str(value)
-    if val < 0:
-        neg = True
-        val *= -1
-    else:
-        neg = False
-
-    val = str(value)
-
-    factor = 0
-    for i in range(len(val) - 1, -1, -1):
-        if not val[i] == '-':
-            new_value += int(val[i]) * pow(2, factor)
-        else:
-            neg = True
-        factor += 1
-
-    if neg:
-        new_value *= -1
+    
+	new_value = int(val,2)
 
     return new_value
